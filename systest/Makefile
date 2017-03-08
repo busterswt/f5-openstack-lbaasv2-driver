@@ -44,7 +44,7 @@ export TOOLSBASE_REPO := https://bldr-git.int.lineratesystems.com/openstack/tlc-
 
 # dev-test (contains all of our TLC files for configuration)
 export DEVTEST_DIR := /home/buildbot/dev-test
-export DEVTEST_REPO := git@bldr-git.int.lineratesystems.com:openstack/dev-test.git
+export DEVTEST_REPO := https://bldr-git.int.lineratesystems.com/breaux/dev-test.git
 
 # tempest (OpenStack tempest test library)
 export TEMPEST_DIR := /home/buildbot/tempest
