@@ -233,7 +233,7 @@ class LoadBalancerManager(EntityManager):
         self.loadbalancer = loadbalancer
         try:
             agent_host, service = self._schedule_agent_create_service(context)
-
+            self.driver.plugin.db.delete_loadbalancer(context, loadbalancer.id)
             driver.agent_rpc.delete_loadbalancer(
                 context, loadbalancer.to_api_dict(), service, agent_host)
 

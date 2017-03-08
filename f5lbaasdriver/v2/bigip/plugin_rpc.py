@@ -268,7 +268,10 @@ class LBaaSv2PluginCallbacksRPC(object):
     @log_helpers.log_method_call
     def loadbalancer_destroyed(self, context, loadbalancer_id=None):
         """Agent confirmation hook that loadbalancer has been destroyed."""
-        self.driver.plugin.db.delete_loadbalancer(context, loadbalancer_id)
+        # self.driver.plugin.db.delete_loadbalancer(context, loadbalancer_id)
+        import time
+        time.sleep(2)
+        pass
 
     @log_helpers.log_method_call
     def update_listener_status(
