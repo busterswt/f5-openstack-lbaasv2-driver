@@ -511,6 +511,7 @@ class LBaaSv2PluginCallbacksRPC(object):
         """Create port on subnet."""
         port = None
         with context.session.begin(subtransactions=True):
+            setattr(context, 'GUARD_TRANSACTION', False)
             if subnet_id:
                 try:
                     subnet = self.driver.plugin.db._core_plugin.get_subnet(
@@ -571,6 +572,7 @@ class LBaaSv2PluginCallbacksRPC(object):
                                                ip_address=None, host=None):
         """Create port on subnet with specific ip address."""
         if subnet_id and ip_address:
+            setattr(context, 'GUARD_TRANSACTION', False)
             subnet = self.driver.plugin.db._core_plugin.get_subnet(
                 context,
                 subnet_id
